@@ -70,3 +70,13 @@ Contributions are highly welcome. If you have configurations for other web serve
 
 ## ⚖️ License
 This project is open-source and dedicated to the public domain. Use it, share it, modify it.
+
+---
+
+### 🍺 Support the Developer
+If you appreciate the time put into building this collection, feel free to **[Buy Me a Beer 🍻](https://www.buymeacoffee.com/)**!
+
+<br>
+<div align="center">
+  <em>Supported by <strong><a href="https://digitaly.site">digitaly.site</a></strong></em>
+</div>
