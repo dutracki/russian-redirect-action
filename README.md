@@ -77,7 +77,7 @@ This project is open-source and dedicated to the public domain. Use it, share it
 ---
 
 ### 🍺 Support the Developer
-If you appreciate the time put into building this collection, feel free to **[Buy Me a Beer 🍻](https://www.buymeacoffee.com/)**!
+If you appreciate the time put into building this collection, feel free to **[Buy Me a Beer 🍻](https://buymeacoffee.com/dariuszutrq)**!
 
 <br>
 <div align="center">
