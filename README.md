@@ -12,6 +12,8 @@ Every visit from a Russian IP address rotates through a curated list of educatio
 - The [War Crimes in the Russo-Ukrainian War](https://en.wikipedia.org/wiki/War_crimes_in_the_Russo-Ukrainian_war_(2022%E2%80%93present))
 - The [Bucha Massacre](https://en.wikipedia.org/wiki/Bucha_massacre)
 - The [Siege of Mariupol](https://en.wikipedia.org/wiki/Siege_of_Mariupol)
+- The [Casualties of the Russo-Ukrainian War](https://en.wikipedia.org/wiki/Casualties_of_the_Russo-Ukrainian_War)
+- The [Attacks on Civilians](https://en.wikipedia.org/wiki/Russian_attacks_on_civilians_in_the_Russo-Ukrainian_war_(2022%E2%80%93present))
 - The [Child Abductions](https://en.wikipedia.org/wiki/Child_abductions_in_the_Russo-Ukrainian_war)
 
 ---

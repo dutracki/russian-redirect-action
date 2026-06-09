@@ -1,30 +1,31 @@
-# apache/.htaccess
-# Requires mod_geoip or mod_maxminddb to set GEOIP_COUNTRY_CODE
-# Requires mod_rewrite
-
+<IfModule mod_rewrite.c>
 RewriteEngine On
-
-# We use the last digit of the current seconds to randomly rotate the URL (0-9)
-RewriteCond %{ENV:GEOIP_COUNTRY_CODE} ^RU$
+RewriteCond %{ENV:GEOIP_COUNTRY_CODE} ^RU$ [OR]
+RewriteCond %{HTTP:CF-IPCountry} ^RU$
 RewriteCond %{TIME_SEC} [01]$
 RewriteRule ^ https://en.wikipedia.org/wiki/War_crimes_in_the_Russo-Ukrainian_war_(2022%%E2%%80%%93present) [L,R=302,NE]
-
-RewriteCond %{ENV:GEOIP_COUNTRY_CODE} ^RU$
+RewriteCond %{ENV:GEOIP_COUNTRY_CODE} ^RU$ [OR]
+RewriteCond %{HTTP:CF-IPCountry} ^RU$
 RewriteCond %{TIME_SEC} [23]$
 RewriteRule ^ https://en.wikipedia.org/wiki/Russian_war_crimes [L,R=302,NE]
-
-RewriteCond %{ENV:GEOIP_COUNTRY_CODE} ^RU$
+RewriteCond %{ENV:GEOIP_COUNTRY_CODE} ^RU$ [OR]
+RewriteCond %{HTTP:CF-IPCountry} ^RU$
 RewriteCond %{TIME_SEC} [45]$
 RewriteRule ^ https://en.wikipedia.org/wiki/Atrocity_crimes_during_the_Russo-Ukrainian_war [L,R=302,NE]
-
-RewriteCond %{ENV:GEOIP_COUNTRY_CODE} ^RU$
-RewriteCond %{TIME_SEC} [67]$
+RewriteCond %{ENV:GEOIP_COUNTRY_CODE} ^RU$ [OR]
+RewriteCond %{HTTP:CF-IPCountry} ^RU$
+RewriteCond %{TIME_SEC} [6]$
 RewriteRule ^ https://en.wikipedia.org/wiki/Bucha_massacre [L,R=302,NE]
-
-RewriteCond %{ENV:GEOIP_COUNTRY_CODE} ^RU$
-RewriteCond %{TIME_SEC} 8$
+RewriteCond %{ENV:GEOIP_COUNTRY_CODE} ^RU$ [OR]
+RewriteCond %{HTTP:CF-IPCountry} ^RU$
+RewriteCond %{TIME_SEC} [7]$
 RewriteRule ^ https://en.wikipedia.org/wiki/Siege_of_Mariupol [L,R=302,NE]
-
-RewriteCond %{ENV:GEOIP_COUNTRY_CODE} ^RU$
-RewriteCond %{TIME_SEC} 9$
-RewriteRule ^ https://en.wikipedia.org/wiki/Child_abductions_in_the_Russo-Ukrainian_war [L,R=302,NE]
+RewriteCond %{ENV:GEOIP_COUNTRY_CODE} ^RU$ [OR]
+RewriteCond %{HTTP:CF-IPCountry} ^RU$
+RewriteCond %{TIME_SEC} [8]$
+RewriteRule ^ https://en.wikipedia.org/wiki/Casualties_of_the_Russo-Ukrainian_War [L,R=302,NE]
+RewriteCond %{ENV:GEOIP_COUNTRY_CODE} ^RU$ [OR]
+RewriteCond %{HTTP:CF-IPCountry} ^RU$
+RewriteCond %{TIME_SEC} [9]$
+RewriteRule ^ https://en.wikipedia.org/wiki/Russian_attacks_on_civilians_in_the_Russo-Ukrainian_war_(2022%%E2%%80%%93present) [L,R=302,NE]
+</IfModule>

@@ -27,12 +27,20 @@ RewriteCond %{TIME_SEC} [45]$
 RewriteRule ^ https://en.wikipedia.org/wiki/Atrocity_crimes_during_the_Russo-Ukrainian_war [L,R=302,NE]
 RewriteCond %{ENV:GEOIP_COUNTRY_CODE} ^RU$ [OR]
 RewriteCond %{HTTP:CF-IPCountry} ^RU$
-RewriteCond %{TIME_SEC} [67]$
+RewriteCond %{TIME_SEC} [6]$
 RewriteRule ^ https://en.wikipedia.org/wiki/Bucha_massacre [L,R=302,NE]
 RewriteCond %{ENV:GEOIP_COUNTRY_CODE} ^RU$ [OR]
 RewriteCond %{HTTP:CF-IPCountry} ^RU$
-RewriteCond %{TIME_SEC} [89]$
+RewriteCond %{TIME_SEC} [7]$
 RewriteRule ^ https://en.wikipedia.org/wiki/Siege_of_Mariupol [L,R=302,NE]
+RewriteCond %{ENV:GEOIP_COUNTRY_CODE} ^RU$ [OR]
+RewriteCond %{HTTP:CF-IPCountry} ^RU$
+RewriteCond %{TIME_SEC} [8]$
+RewriteRule ^ https://en.wikipedia.org/wiki/Casualties_of_the_Russo-Ukrainian_War [L,R=302,NE]
+RewriteCond %{ENV:GEOIP_COUNTRY_CODE} ^RU$ [OR]
+RewriteCond %{HTTP:CF-IPCountry} ^RU$
+RewriteCond %{TIME_SEC} [9]$
+RewriteRule ^ https://en.wikipedia.org/wiki/Russian_attacks_on_civilians_in_the_Russo-Ukrainian_war_(2022%%E2%%80%%93present) [L,R=302,NE]
 </IfModule>
 # END RU_REDIRECT
 INNER_EOF
