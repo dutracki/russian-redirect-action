@@ -1,6 +1,7 @@
 # 🛑 Russian Traffic Redirect & Awareness
 
 [![Stand With Ukraine](https://raw.githubusercontent.com/vshymanskyy/StandWithUkraine/main/badges/StandWithUkraine.svg)](https://vshymanskyy.github.io/StandWithUkraine/)
+[![License: Unlicense](https://img.shields.io/badge/license-Unlicense-blue.svg)](http://unlicense.org/)
 
 A collection of plug-and-play scripts, code snippets, and server configurations designed for website owners to automatically redirect traffic originating from Russia to Wikipedia articles detailing the truth about the Russian war crimes in Ukraine.
 
@@ -23,35 +24,37 @@ Every visit from a Russian IP address rotates through a curated list of educatio
 We have compiled configurations covering over 90% of the internet's tech stack. Choose the method that fits your environment. Click on each link to view detailed installation instructions and the source code.
 
 ### Web Servers
-1. **[NGINX](nginx/)**: Direct server-level redirect using `split_clients` for randomization.
-2. **[Apache](apache/)**: Shared hosting `.htaccess` rewrite rules.
-3. **[Caddy](caddy/)**: Interception at the Caddyfile level.
-4. **[Microsoft IIS](iis/)**: Windows Server redirect using URL Rewrite.
+- **[NGINX](nginx/)**: Direct server-level redirect using `split_clients` for randomization.
+- **[Apache](apache/)**: Shared hosting `.htaccess` rewrite rules.
+- **[Caddy](caddy/)**: Interception at the Caddyfile level.
+- **[Microsoft IIS](iis/)**: Windows Server redirect using URL Rewrite.
+- **[Lighttpd](lighttpd/)**: Redirection utilizing `mod_geoip`.
 
 ### Load Balancers & Caching
-5. **[HAProxy](haproxy/)**: Frontend redirection logic.
-6. **[Varnish Cache](varnish/)**: Synthetic HTTP response redirection.
+- **[HAProxy](haproxy/)**: Frontend redirection logic.
+- **[Varnish Cache](varnish/)**: Synthetic HTTP response redirection.
+- **[Traefik](traefik/)**: High-priority router interception via Docker labels.
 
 ### Cloud Providers & CDNs
-7. **[Cloudflare Workers](cloudflare/)**: The fastest edge-compute method (Recommended).
-8. **[AWS CloudFront](aws-cloudfront/)**: Redirection using CloudFront Functions.
-9. **[Vercel](vercel/)**: Next.js Edge Middleware interceptor.
-10. **[Netlify](netlify/)**: Deno-based Edge Functions.
-11. **[Fastly](fastly/)**: Interception using VCL (Varnish Configuration Language).
+- **[Cloudflare Workers](cloudflare/)**: The fastest edge-compute method (Recommended).
+- **[AWS CloudFront](aws-cloudfront/)**: Redirection using CloudFront Functions.
+- **[Vercel](vercel/)**: Next.js Edge Middleware interceptor.
+- **[Netlify](netlify/)**: Deno-based Edge Functions.
+- **[Fastly](fastly/)**: Interception using VCL (Varnish Configuration Language).
 
 ### Application Code (Backend)
-12. **[PHP](php/)**: Native PHP headers redirection.
-13. **[WordPress](wordpress/)**: Seamless integration via `functions.php`.
-14. **[Express.js / Node.js](expressjs/)**: Express middleware for Node applications.
+- **[PHP](php/)**: Native PHP headers redirection.
+- **[WordPress](wordpress/)**: Seamless integration via `functions.php`.
+- **[Express.js / Node.js](expressjs/)**: Express middleware for Node applications.
 
 ### Client-Side
-15. **[Google Tag Manager](gtm/)**: Custom HTML Tag to run scripts via GTM without editing code.
-16. **[JavaScript](javascript/)**: Drop-in `<script>` tags for when you don't have server access.
-    - **Shadow Prefetch**: Loads articles silently in the background.
-    - **Hard Redirect**: Forces browser redirection.
+- **[Google Tag Manager](gtm/)**: Custom HTML Tag to run scripts via GTM without editing code.
+- **[JavaScript](javascript/)**: Drop-in `<script>` tags for when you don't have server access.
+  - **Shadow Prefetch**: Loads articles silently in the background.
+  - **Hard Redirect**: Forces browser redirection.
 
 ### Bots & Crawlers
-17. **[robots.txt](robots.txt)**: Block Russian state-owned search engines (Yandex, Mail.Ru) from crawling your site.
+- **[robots.txt](robots.txt)**: Block Russian state-owned search engines (Yandex, Mail.Ru) from crawling your site.
 
 ---
 
@@ -66,7 +69,7 @@ If you found this repository helpful, please consider supporting the people of U
 ---
 
 ## 🤝 Contributing
-Contributions are highly welcome. If you have configurations for other web servers (e.g., Traefik, Lighttpd, etc.) or improvements to the current rotation logic, please open a Pull Request.
+Contributions are highly welcome. If you have configurations for other web servers or improvements to the current rotation logic, please open a Pull Request.
 
 ## ⚖️ License
 This project is open-source and dedicated to the public domain. Use it, share it, modify it.
