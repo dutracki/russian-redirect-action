@@ -1,0 +1,12 @@
+# Disallow Russian search engines like Yandex and Mail.Ru from crawling the site entirely
+# This helps prevent Russian state-controlled networks from indexing your standard content
+
+User-agent: Yandex
+Disallow: /
+
+User-agent: Mail.Ru
+Disallow: /
+
+# Allow all other global search engines
+User-agent: *
+Disallow:

@@ -1,0 +1,33 @@
+# Caddyfile example
+# If you are behind Cloudflare, you can match their CF-IPCountry header.
+# Otherwise, you can use the MaxMind GeoIP module for Caddy.
+
+example.com {
+    # Method 1: Match traffic using Cloudflare's country header
+    @russia {
+        header CF-IPCountry RU
+    }
+
+    # Rotate by responding with a simple JS script that handles the randomization
+    handle @russia {
+        respond `<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        const urls = [
+            "https://en.wikipedia.org/wiki/War_crimes_in_the_Russo-Ukrainian_war_(2022%E2%80%93present)",
+            "https://en.wikipedia.org/wiki/Russian_war_crimes",
+            "https://en.wikipedia.org/wiki/Atrocity_crimes_during_the_Russo-Ukrainian_war",
+            "https://en.wikipedia.org/wiki/Bucha_massacre",
+            "https://en.wikipedia.org/wiki/Siege_of_Mariupol",
+            "https://en.wikipedia.org/wiki/Child_abductions_in_the_Russo-Ukrainian_war"
+        ];
+        window.location.href = urls[Math.floor(Math.random() * urls.length)];
+    </script>
+</head>
+<body>Redirecting...</body>
+</html>` 200 {
+            header Content-Type "text/html; charset=utf-8"
+        }
+    }
+}
