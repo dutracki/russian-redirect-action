@@ -1,0 +1,27 @@
+# traefik/docker-compose.yml
+# Example of applying Traefik labels to intercept Russian traffic
+# This relies on a reverse proxy like Cloudflare passing the CF-IPCountry header.
+
+services:
+  my-web-app:
+    image: nginx:latest
+    labels:
+      - "traefik.enable=true"
+      
+      # Your normal router
+      - "traefik.http.routers.my-app.rule=Host(`example.com`)"
+      
+      # 1. Create a specific router that catches requests with the CF-IPCountry: RU header
+      - "traefik.http.routers.ru-blocker.rule=Host(`example.com`) && HeadersRegexp(`CF-IPCountry`, `^RU$`)"
+      # Assign a higher priority to ensure this rule runs before your normal app router
+      - "traefik.http.routers.ru-blocker.priority=100"
+      
+      # 2. Attach the redirect middleware to this router
+      - "traefik.http.routers.ru-blocker.middlewares=ru-redirect"
+      
+      # 3. Define the redirect middleware to send them to Wikipedia
+      - "traefik.http.middlewares.ru-redirect.redirectregex.regex=.*"
+      - "traefik.http.middlewares.ru-redirect.redirectregex.replacement=https://en.wikipedia.org/wiki/Casualties_of_the_Russo-Ukrainian_War"
+      
+      # Point to an internal dummy service since it will redirect anyway
+      - "traefik.http.routers.ru-blocker.service=noop@internal"
