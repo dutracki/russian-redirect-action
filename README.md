@@ -45,12 +45,13 @@ We have compiled configurations covering over 90% of the internet's tech stack. 
 14. **[Express.js / Node.js](expressjs/)**: Express middleware for Node applications.
 
 ### Client-Side
-15. **[JavaScript](javascript/)**: Drop-in `<script>` tags for when you don't have server access.
+15. **[Google Tag Manager](gtm/)**: Custom HTML Tag to run scripts via GTM without editing code.
+16. **[JavaScript](javascript/)**: Drop-in `<script>` tags for when you don't have server access.
     - **Shadow Prefetch**: Loads articles silently in the background.
     - **Hard Redirect**: Forces browser redirection.
 
 ### Bots & Crawlers
-16. **[robots.txt](robots.txt)**: Block Russian state-owned search engines (Yandex, Mail.Ru) from crawling your site.
+17. **[robots.txt](robots.txt)**: Block Russian state-owned search engines (Yandex, Mail.Ru) from crawling your site.
 
 ---
 
